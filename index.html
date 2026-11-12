@@ -1,0 +1,233 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Línea del campo Frutilombia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;700;800&display=swap">
+<style>
+/* Concepto: un celular de campo al centro y, al lado, el recorrido de cada pregunta por los medios de Frutilombia. */
+:root{
+  --bg:#f3efe6; --panel:#fbf9f3; --ink:#1f2a1c; --muted:#5d6a58; --line:#ddd6c4;
+  --forest:#2d4a2b; --leaf:#4f7a3c; --earth:#c8631a; --crema:#fff8e8;
+  --chat-bg:#e9e2cf; --in:#ffffff; --out:#dcebc4; --on-forest:#f4f1e4;
+  --shadow:0 18px 40px rgba(45,74,43,.18);
+  --f-head:"Fraunces",Georgia,serif; --f-body:"Nunito Sans","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a12; --panel:#1b2418; --ink:#ece8da; --muted:#a6b29f; --line:#2f3b2b;
+  --forest:#1f3a1e; --leaf:#7fb15f; --earth:#e58a47; --crema:#262b1d;
+  --chat-bg:#202619; --in:#2c3527; --out:#3b5530; --on-forest:#f4f1e4; --shadow:0 18px 40px rgba(0,0,0,.45);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a12; --panel:#1b2418; --ink:#ece8da; --muted:#a6b29f; --line:#2f3b2b;
+  --forest:#1f3a1e; --leaf:#7fb15f; --earth:#e58a47; --crema:#262b1d;
+  --chat-bg:#202619; --in:#2c3527; --out:#3b5530; --on-forest:#f4f1e4; --shadow:0 18px 40px rgba(0,0,0,.45);color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;
+  padding-block:28px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:40px;align-items:start}
+@media(max-width:860px){.wrap{grid-template-columns:minmax(0,1fr);gap:28px}}
+h1,h2{font-family:var(--f-head);font-weight:700;margin:0;text-wrap:balance}
+.intro{grid-column:1/-1}
+.intro h1{font-size:clamp(28px,5vw,40px);line-height:1.1}
+.intro p{margin:8px 0 0;color:var(--muted);max-width:62ch}
+.tag{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--earth);font-weight:800;margin-bottom:8px}
+/* phone */
+.phone{width:100%;max-width:380px;margin:0 auto;background:#10160e;border-radius:38px;padding:11px;box-shadow:var(--shadow)}
+.screen{background:var(--chat-bg);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;height:640px}
+.top{background:var(--forest);color:var(--on-forest);padding:12px 14px;display:flex;align-items:center;gap:10px}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--crema);display:grid;place-items:center;flex:none}
+.top b{display:block;font-size:15px;line-height:1.2}
+.top small{font-size:12px;opacity:.8}
+.msgs{flex:1;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:8px;scroll-behavior:smooth}
+.day{align-self:center;font-size:12px;background:var(--panel);color:var(--muted);padding:2px 10px;border-radius:10px}
+.b{max-width:84%;padding:8px 11px 6px;border-radius:12px;font-size:16px;line-height:1.35;position:relative;word-wrap:break-word;overflow-wrap:anywhere;animation:pop .22s ease-out}
+@keyframes pop{from{transform:translateY(6px);opacity:0}to{transform:none;opacity:1}}
+.b.in{align-self:flex-start;background:var(--in);border-top-left-radius:3px}
+.b.out{align-self:flex-end;background:var(--out);border-top-right-radius:3px}
+.b .t{display:block;text-align:right;font-size:11px;color:var(--muted);margin-top:2px}
+.b .t i{font-style:normal;color:var(--leaf);margin-left:3px}
+.b.photo{padding:4px 4px 6px}
+.b.photo svg{display:block;border-radius:9px;width:100%;height:auto}
+.b.photo .t{padding-right:6px}
+.audio{display:flex;align-items:center;gap:9px;min-width:210px}
+.play{width:34px;height:34px;border-radius:50%;border:0;background:var(--leaf);color:#fff;display:grid;place-items:center;cursor:pointer;flex:none}
+.wave{flex:1;display:flex;align-items:center;gap:2px;height:28px}
+.wave span{width:3px;border-radius:2px;background:var(--muted);opacity:.5}
+.wave span.on{background:var(--leaf);opacity:1}
+.dur{font-size:12px;color:var(--muted)}
+.typing{align-self:flex-start;background:var(--in);border-radius:12px;padding:10px 13px;display:flex;gap:4px}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:bl 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes bl{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:6px 12px;background:var(--chat-bg)}
+.chip{font:inherit;font-size:14px;border:1px solid var(--leaf);background:var(--panel);color:var(--ink);padding:6px 11px;border-radius:16px;cursor:pointer}
+.chip:hover{background:var(--out)}
+.chip:focus-visible,.send:focus-visible,.play:focus-visible,input:focus-visible,.reset:focus-visible{outline:3px solid var(--earth);outline-offset:2px}
+.compose{display:flex;gap:8px;padding:8px 10px 10px;background:var(--chat-bg)}
+.compose input{flex:1;min-width:0;font:inherit;font-size:16px;padding:11px 14px;border-radius:22px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+.send{width:44px;height:44px;border-radius:50%;border:0;background:var(--forest);color:var(--on-forest);cursor:pointer;display:grid;place-items:center;flex:none}
+.note{font-size:13px;color:var(--muted);text-align:center;margin:12px auto 0;max-width:380px}
+/* side panel */
+.side{display:flex;flex-direction:column;gap:22px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card h2{font-size:20px;margin-bottom:4px}
+.card p.sub{margin:0 0 14px;color:var(--muted);font-size:14px}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding-bottom:14px;position:relative;color:var(--muted)}
+.steps li:not(:last-child)::before{content:"";position:absolute;left:13px;top:28px;bottom:0;width:2px;background:var(--line)}
+.steps .dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:800;background:var(--panel)}
+.steps li.done{color:var(--ink)}
+.steps li.done .dot{background:var(--leaf);border-color:var(--leaf);color:#fff}
+.steps li.now .dot{border-color:var(--earth);color:var(--earth)}
+.steps b{display:block;font-size:15px}.steps small{font-size:13px}
+.dest{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.d{border:1.5px solid var(--line);border-radius:12px;padding:12px;display:flex;gap:10px;align-items:flex-start;transition:.25s;opacity:.55}
+.d.on{opacity:1;border-color:var(--earth);background:var(--crema)}
+.d svg{flex:none;color:var(--leaf)}.d.on svg{color:var(--earth)}
+.d b{display:block;font-size:15px}.d small{color:var(--muted);font-size:13px;line-height:1.3;display:block}
+.log{font-size:14px;background:var(--crema);border-radius:10px;padding:10px 12px;margin-top:12px;color:var(--ink)}
+.reset{font:inherit;font-size:14px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:8px 12px;cursor:pointer;margin-top:14px}
+.ph{font-family:ui-monospace,Menlo,monospace;font-size:.9em;background:var(--crema);border-radius:4px;padding:0 4px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <span class="tag">Frutilombia · Narrativas Transmedia</span>
+    <h1>Línea del campo por WhatsApp</h1>
+    <p>Escribe como si fueras Don Luis y mira cómo viaja tu pregunta: llega a la línea, la revisa un agrónomo y se contesta con un audio grabado al día siguiente, o cuando esté lista. Es un mock up: los datos de contacto están entre corchetes y las respuestas son de ejemplo.</p>
+  </header>
+
+  <section aria-label="Chat">
+    <div class="phone"><div class="screen">
+      <div class="top">
+        <div class="avatar" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2d4a2b" stroke-width="1.8" stroke-linecap="round"><path d="M12 21V9"/><path d="M12 13C7 13 5 10 5 6c4 0 7 2 7 7z"/><path d="M12 11c0-4 2-7 7-7 0 4-2 7-7 7z"/></svg></div>
+        <div><b>Frutilombia · Línea del campo</b><small id="status">en línea</small></div>
+      </div>
+      <div class="msgs" id="msgs" aria-live="polite"></div>
+      <div class="chips" id="chips">
+        <button class="chip" data-q="¿Qué hago con las plagas del mango?">Plagas del mango</button>
+        <button class="chip" data-q="¿Cuándo siembro el arroz si ha llovido poco?">Sembrar con poca lluvia</button>
+        <button class="chip" data-q="¿Cómo guardo la cosecha para que no se dañe?">Guardar la cosecha</button>
+        <button class="chip" data-q="Quiero compartir un tip: yo riego temprano en la mañana y el cultivo aguanta mejor el sol.">Compartir un tip</button>
+      </div>
+      <form class="compose" id="form">
+        <input id="inp" type="text" placeholder="Escriba su pregunta o su tip" autocomplete="off" aria-label="Escriba su pregunta">
+        <button class="send" type="submit" aria-label="Enviar"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5V3.5L22 12 3 20.5zm2-3.2L16.5 12 5 6.7v3.6l7 1.7-7 1.7v3.6z"/></svg></button>
+      </form>
+    </div></div>
+    <p class="note">Mock up. No usa la marca ni el logo de WhatsApp.</p>
+  </section>
+
+  <aside class="side">
+    <div class="card">
+      <h2>¿Dónde está mi pregunta?</h2>
+      <p class="sub">Estado de la última consulta.</p>
+      <ol class="steps" id="steps">
+        <li data-s="0"><span class="dot">1</span><div><b>Recibida</b><small>Entra por texto, audio o foto.</small></div></li>
+        <li data-s="1"><span class="dot">2</span><div><b>La revisa un agrónomo</b><small>Nadie recomienda dosis ni productos sin revisión.</small></div></li>
+        <li data-s="2"><span class="dot">3</span><div><b>Se graba la respuesta</b><small>Va por WhatsApp al día siguiente o cuando esté lista, y suena en [Nombre del programa] por [Emisora local].</small></div></li>
+        <li data-s="3"><span class="dot">4</span><div><b>Queda para todos</b><small>Columna, cartilla y muro de Miro.</small></div></li>
+      </ol>
+      <div class="log" id="log">Aún no hay consultas nuevas. Escribe algo en el chat.</div>
+      <button class="reset" id="next" type="button">Ver la respuesta de mañana</button> <button class="reset" id="reset" type="button">Empezar de nuevo</button>
+    </div>
+    <div class="card">
+      <h2>A dónde va lo que usted cuenta</h2>
+      <p class="sub">Se resalta el medio que usa la consulta. Se reciben preguntas, recomendaciones y tips.</p>
+      <div class="dest" id="dest">
+        <div class="d" data-d="radio"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M7 8l10-5"/><circle cx="9" cy="14" r="2.5"/><path d="M15 12h3M15 15h3"/></svg><div><b>Radio local</b><small>Respuestas grabadas y llamadas.</small></div></div>
+        <div class="d" data-d="periodico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h4"/></svg><div><b>Columna del periódico</b><small>Un tip corto para toda la región.</small></div></div>
+        <div class="d" data-d="cartilla"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v13c-3-1-6-1-8 1-2-2-5-2-8-1z"/><path d="M12 6v13"/></svg><div><b>Cartilla</b><small>Se suma en la siguiente edición.</small></div></div>
+        <div class="d" data-d="miro"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 12l3-3 3 3 3-4"/></svg><div><b>Muro de Miro</b><small>Capturas, fotos y agradecimientos.</small></div></div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const msgs=$('#msgs'),inp=$('#inp'),form=$('#form');
+let busy=false,asked=0,pending=false;
+const hora=()=>new Date().toLocaleTimeString('es-CO',{hour:'numeric',minute:'2-digit'});
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function scroll(){msgs.scrollTop=msgs.scrollHeight}
+function bubble(kind,html,cls=''){const d=document.createElement('div');d.className='b '+kind+' '+cls;
+  d.innerHTML=html+'<span class="t">'+hora()+(kind==='out'?'<i>✓✓</i>':'')+'</span>';msgs.appendChild(d);scroll();return d}
+const leaf=`<svg viewBox="0 0 240 150" role="img" aria-label="Foto de una hoja de plátano con bordes amarillos"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fa24a"/><stop offset="1" stop-color="#3d6b2c"/></linearGradient></defs><rect width="240" height="150" fill="#8c7b5a"/><rect y="105" width="240" height="45" fill="#6b5a3c"/><path d="M18 120C60 20 170 10 226 40 190 60 120 110 18 120z" fill="url(#g)"/><path d="M18 120C100 80 160 55 226 40" stroke="#2d5220" stroke-width="3" fill="none"/><path d="M48 98c4-20 18-34 36-42M80 100c10-16 24-26 44-32M120 90c10-12 22-20 40-26" stroke="#e6c94a" stroke-width="9" stroke-linecap="round" fill="none" opacity=".85"/><path d="M190 60c10-6 22-10 34-12" stroke="#d9b238" stroke-width="8" stroke-linecap="round" fill="none"/></svg>`;
+const bars=Array.from({length:28},(_,i)=>8+Math.abs(Math.sin(i*1.7))*18+((i*7)%5));
+function audioHTML(){return '<div class="audio"><button class="play" type="button" aria-label="Reproducir audio"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg></button><div class="wave">'+bars.map(h=>'<span style="height:'+h+'px"></span>').join('')+'</div><span class="dur">0:14</span></div>'}
+msgs.addEventListener('click',e=>{const p=e.target.closest('.play');if(!p)return;const spans=[...p.parentElement.querySelectorAll('.wave span')];
+  if(p.dataset.run)return;p.dataset.run=1;let i=0;const iv=setInterval(()=>{if(i>=spans.length){clearInterval(iv);spans.forEach(s=>s.classList.remove('on'));delete p.dataset.run;return}spans[i++].classList.add('on')},120)});
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function botSay(texts){
+  for(const t of texts){const ty=document.createElement('div');ty.className='typing';ty.innerHTML='<span></span><span></span><span></span>';
+    msgs.appendChild(ty);scroll();$('#status').textContent='escribiendo...';await wait(650+Math.min(t.length*9,900));ty.remove();bubble('in',t);}
+  $('#status').textContent='en línea';
+}
+/* Respuestas de ejemplo. Nunca dan dosis ni productos. */
+const topics=[
+ {k:/dosis|veneno|fungicida|insecticida|producto|cu[aá]nto le echo|mezcla|litros|gramos/,
+  r:['Esa pregunta necesita un agrónomo. No le vamos a decir una dosis ni un producto sin que lo revise.','Mientras tanto, no mezcle productos y use guantes y tapabocas. La respuesta se la mandamos grabada cuando la revise el agrónomo.'],
+  d:['radio'],l:'Pregunta sobre productos: pasa directo al agrónomo.'},
+ {k:/\btips?\b|truco|recomendaci[oó]n|quiero compartir|a m[ií] me funcion|yo hago|yo siempre/,
+  r:['Gracias, Don Luis. Su tip vale mucho: lo que usted aprendió en la finca le sirve a otro agricultor.','Lo revisa un agrónomo y, si le parece, lo leemos en el programa con su nombre. También puede mandarlo en audio o con una foto.','Después lo sumamos a la columna del periódico, a la cartilla y al muro de Miro.'],
+  d:['radio','periodico','cartilla','miro'],l:'Tip del agricultor: radio, columna, cartilla y muro.'},
+ {k:/pl[aá]tano|banano|amarill|hoja/,
+  r:['Gracias por la foto, Don Luis. Hojas amarillas pueden venir de varias cosas: falta de agua, exceso de agua o una enfermedad.','Para no adivinar, la mira un agrónomo y le mandamos la respuesta grabada, mañana o en uno de los próximos días.'],
+  d:['radio','cartilla'],l:'Plátano con hojas amarillas: radio y cartilla.'},
+ {k:/plaga|bicho|insecto|mosca|hormiga|mango|gusano/,
+  r:['Las plagas cambian con el clima y con la época. Mire bien dónde las ve: en la flor, en la fruta o en la hoja.','Un agrónomo revisa su caso. Mientras tanto, saque del lote la fruta caída y dañada, que ahí se multiplican.'],
+  d:['radio','periodico'],l:'Plagas del mango: radio y columna del periódico.'},
+ {k:/sembr|lluvia|llov|arroz|sequ[ií]a|seco|clima|verano|invierno/,
+  r:['Sembrar a tiempo depende de la lluvia de su zona. Compare lo que usted anota con el Boletín Agroclimático del mes.','Cuéntenos en qué vereda está y le mandamos una respuesta grabada, mañana o cuando esté lista.'],
+  d:['radio','periodico','miro'],l:'Siembra y lluvia: radio, columna y muro.'},
+ {k:/guard|cosecha|almacen|pudr|da[ñn]a|secar|conserv/,
+  r:['Para guardar bien la cosecha hay que cuidarla del agua y del calor. Un lugar ventilado y a la sombra ayuda.','Esa pregunta es muy común. La vamos a contestar en el programa y la sumamos a la cartilla.'],
+  d:['radio','cartilla','periodico'],l:'Guardar la cosecha: radio, cartilla y columna.'},
+ {k:/precio|vender|mercado|pagan|comprador/,
+  r:['Los precios cambian de un mes a otro y eso pega duro. Anótenos qué cultivo vende y dónde.','Lo llevamos a la columna del periódico y al programa para que otros cuenten cómo les ha ido.'],
+  d:['periodico','radio','miro'],l:'Precios y venta: columna, radio y muro.'},
+ {k:/gracias|listo|ok|bueno/,
+  r:['Con gusto, Don Luis. ¿Usted qué hace en su finca para que el cultivo rinda? Mándenos un audio y lo ponemos en la cartilla.'],
+  d:['miro','cartilla'],l:'Un tip de usted: muro de Miro y cartilla.'}
+];
+const fallback={r:['Gracias por escribirnos, Don Luis. Recibimos su pregunta y la pasamos a un agrónomo.','Si quiere, mándenos una foto o un audio y díganos en qué zona está.'],d:['radio'],l:'Consulta general: radio.'};
+function setSteps(n){document.querySelectorAll('#steps li').forEach(li=>{const s=+li.dataset.s;li.classList.toggle('done',s<n);li.classList.toggle('now',s===n)})}
+function setDest(a){document.querySelectorAll('.d').forEach(e=>e.classList.toggle('on',a.includes(e.dataset.d)))}
+async function ask(text){
+  if(busy||!text.trim())return;busy=true;inp.value='';
+  bubble('out',esc(text));asked++;
+  const t=topics.find(x=>x.k.test(text.toLowerCase()))||fallback;
+  setSteps(0);setDest([]);$('#log').textContent='Consulta recibida...';
+  await wait(500);await botSay(t.r);
+  setSteps(1);setDest(t.d);$('#log').textContent=t.l+' La respuesta grabada llega mañana o cuando esté lista.';
+  await wait(900);setSteps(2);pending=true;
+  busy=false;
+}
+async function nextDay(){
+  if(busy||!pending)return;busy=true;pending=false;
+  msgs.insertAdjacentHTML('beforeend','<span class="day">Mañana · 8:00 a. m.</span>');scroll();
+  await botSay(['Buenos días, Don Luis. Aquí está la respuesta grabada a su pregunta.']);
+  bubble('in',audioHTML());await wait(500);
+  await botSay(['Si le sirvió, cuéntenos cómo le fue. Y si tiene un tip propio, mándelo por aquí.']);
+  setSteps(4);setDest(['radio','cartilla','miro']);$('#log').textContent='Respuesta grabada enviada. Ahora también puede sonar en el programa.';
+  busy=false;
+}
+$('#next').addEventListener('click',nextDay);
+form.addEventListener('submit',e=>{e.preventDefault();ask(inp.value)});
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>ask(c.dataset.q)));
+function start(){
+  msgs.innerHTML='';busy=true;asked=0;pending=false;setSteps(-1);setDest([]);$('#log').textContent='Aún no hay consultas nuevas. Escribe algo en el chat.';
+  msgs.insertAdjacentHTML('beforeend','<span class="day">Hoy</span>');
+  bubble('out','Buenas, se me están poniendo amarillas las hojas del plátano, ¿qué será?');
+  bubble('out',leaf,'photo');
+  const a=bubble('out',audioHTML());
+  setTimeout(async()=>{
+    await botSay(['Buenas, Don Luis. Soy la Línea del campo de Frutilombia. Aquí puede hacer preguntas y también mandarnos sus recomendaciones, tips y trucos.','Recibimos su pregunta, su foto y su audio. Un agrónomo los revisa y le mandamos la respuesta grabada mañana, o en uno de los próximos días, y también suena en [Nombre del programa].','Para ayudarle mejor: ¿en qué vereda está y ha llovido mucho esta semana?']);
+    setSteps(2);setDest(['radio','cartilla']);$('#log').textContent='Plátano con hojas amarillas: la respuesta grabada llega mañana o cuando esté lista.';pending=true;busy=false;
+  },400);
+}
+$('#reset').addEventListener('click',start);
+start();
+</script>
+
+</body></html>
